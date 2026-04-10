@@ -6,7 +6,7 @@ app = Flask(__name__)
 def submit():
     name = request.form.get("name")
 
-    return print(name)
+    return name
 
 
 if __name__ == '__main__':
