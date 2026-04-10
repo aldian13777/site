@@ -6,7 +6,8 @@ app = Flask(__name__)
 def submit():
     name = request.form.get("name")
 
-    print(name)
+    return "data submitted"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
