@@ -8,8 +8,8 @@ def submit():
 
     #collecting data into array
     user_data = {
-        "name" : request.form.get("name")
-        "age" ; request.form.get("age")
+        "name" : request.form.get("name"),
+        "age" : request.form.get("age")
     }
 
     return jsonify(user_data)
