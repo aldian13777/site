@@ -9,7 +9,7 @@ def submit():
     #collecting data into array
     user_data = {
         "name" : request.form.get("name"),
-        "age" : int(request.form.get("age"))
+        "age" : request.form.get("age")
     }
 
     return jsonify(user_data)
