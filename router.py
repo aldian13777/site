@@ -1,12 +1,18 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+# Collecting data from User input
 @app.route('/submit', methods=["POST"])
 def submit():
-    name = request.form.get("name")
 
-    return name
+    #collecting data into array
+    user_data = {
+        "name" : request.form.get("name")
+        "age" ; request.form.get("age")
+    }
+
+    return jsonify(user_data)
 
 
 if __name__ == '__main__':
