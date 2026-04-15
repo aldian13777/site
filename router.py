@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-
+app = Flask(__name__)
 
 # Collecting data from User input
 @app.route('/submit', methods=["POST"])
