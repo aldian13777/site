@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 
 app = Flask(__name__)
 #DB configuration
@@ -9,7 +10,10 @@ db = SQLAlchemy(app)
 #test DB connection
 @app.route('/connectiondb')
 def home():
-    return "Connected"
+    result = db.session.execute(text("SELECT current_database();"))
+    db_name = result.scalar()
+
+    return f"connected to : {db_name}"
 
 # Collecting data from User input
 @app.route('/submit', methods=["POST"])
