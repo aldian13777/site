@@ -10,6 +10,8 @@ db = SQLAlchemy(app)
 #Data container blueprint from Flask to DB
 class test01(db.Model):
     id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(100))
+    age = db.Column(db.Integer)
     payload = db.Column(db.JSON)
 
 ##############################################################
@@ -26,20 +28,19 @@ def home():
 @app.route('/submit', methods=["POST"])
 def submit():
 
-    #collecting data into dictionary
-    user_data = {
-        "name" : request.form.get("name"),
-        "age" : request.form.get("age")
-    }
+    #collecting data into object
+    collectedname = request.form.get("name")
+    collectedage = request.form.get("age")
+    
 
     #holding the data collected into the container
-    package = test01(payload=user_data)
+    package = test01(name=collectedname,age=collectedage)
 
     #save and send data to DB
     db.session.add(package)
     db.session.commit()
 
-    return jsonify(user_data)
+    return "Success"
 
 
 ##############################################################
