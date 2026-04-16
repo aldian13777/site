@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://neondb_owner:npg_z9PjKMr5d
 db = SQLAlchemy(app)
 
 #Data container blueprint from Flask to DB
-class Container(db.Model):
+class test01(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     payload = db.Column(db.JSON)
 
@@ -33,7 +33,7 @@ def submit():
     }
 
     #holding the data collected into the container
-    package = Container(payload=user_data)
+    package = test01(payload=user_data)
 
     #save and send data to DB
     db.session.add(package)
