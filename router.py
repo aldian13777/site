@@ -47,8 +47,9 @@ def submit():
 
 @app.route('/view')
 def view():
-    view = session.execute(text("SELECT * FROM Test01"))
-    return view
+    result = db.session.execute(text("SELECT * FROM Test01"))
+    data = [dict(row._mapping) for row in result]
+    return  jsonify(data)
 
 ##############################################################
 if __name__ == '__main__':
