@@ -42,6 +42,13 @@ def submit():
 
     return "Success"
 
+##############################################################
+# Data retrieve
+
+@app.route('/view')
+def view():
+    view = session.execute(text("SELECT * FROM Test01"))
+    return view
 
 ##############################################################
 if __name__ == '__main__':
