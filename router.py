@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 
 #Data container blueprint from Flask to DB
 class Container(db.Model):
-    id = db.Column(db.interger,primary_key=True)
+    id = db.Column(db.Integer,primary_key=True)
     payload = db.Column(db.JSON)
 
 ##############################################################
