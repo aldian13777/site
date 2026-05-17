@@ -1,6 +1,6 @@
 <html>
 <h1>data input trial</h1>
-<form action="http://104.154.246.222:5000/submit" method="POST">
+<form action="http://35.255.77.42:5000/submit" method="POST">
     
   <label>Name :</label>
   <input type="text" id="name" name="name"><br>
@@ -9,7 +9,19 @@
   <input type="submit" value="Submit">
 </form>
   <br>
-  <button onclick="window.location.href='http://104.154.246.222:5000/connectiondb'">
+  <h2>test connection</h2><br>
+  <button onclick="window.location.href='http://35.255.77.42:5000/connectiondb'">
 	  test connection
 </button>
+<h2>upload csv</h2>
+<form action="http://35.255.77.42:5000/upload" method="POST" enctype="multipart/form-data">
+	<input type="file"
+	       name="csv_file"
+	       accept=".csv"
+	       required
+	       >
+	       <br>
+<button type="submit">Upload</button>
+</form>
+
 </html>

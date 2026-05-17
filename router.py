@@ -52,5 +52,20 @@ def view():
     return  jsonify(data)
 
 ##############################################################
+#CSV Data collect
+
+@app.route('/upload',methods=["POST"])
+def collect_csv():
+    csv_file=request.files["csv_file"]
+
+    if csv_file:
+        return "success"
+
+    return "no file uploaded"
+
+
+
+##############################################################
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
