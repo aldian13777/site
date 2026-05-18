@@ -58,11 +58,10 @@ def view():
 def collect_csv():
     csv_file=request.files["csv_file"]
 
-    if csv_file:
-        return "success"
+    #read csv file
+    content = csv_file.read()
 
-    return "no file uploaded"
-
+    return content
 
 
 ##############################################################
