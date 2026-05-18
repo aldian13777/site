@@ -58,12 +58,9 @@ def view():
 def collect_csv():
     csv_file=request.files["csv_file"]
 
-    #read csv file
-    content = csv_file.read()
-
-    return content
-
-
+    #jsonify data
+    return jsonify(csv_file)
+    
 ##############################################################
 
 if __name__ == '__main__':
