@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+import pandas as pd
 
 app = Flask(__name__)
 #DB configuration
@@ -58,8 +59,10 @@ def view():
 def collect_csv():
     csv_file=request.files["csv_file"]
 
-    #jsonify data
-    return jsonify(csv_file)
+    #Read CSV into pandas dataFrame
+    csv_df = pd.read_csv(csv_file)
+
+    return(csv_df)
     
 ##############################################################
 
