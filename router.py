@@ -61,8 +61,23 @@ def collect_csv():
 
     #Read CSV into pandas dataFrame
     csv_df = pd.read_csv(csv_file)
+    
+    #convert dataframe into List of Dictionary
+    rows = csv_df.to_dict(orient="records")
 
-    return(csv_df)
+    #store List of Dictionary into Class Table
+    object01 = []
+    for row in rows:
+        bulk_input = test01(
+            name=row["Name"],
+            age=row["Age"])
+   
+        object01.append({
+            "name":bulk_input.name,
+            "age":bulk_input.age})
+
+    return object01
+ 
     
 ##############################################################
 
