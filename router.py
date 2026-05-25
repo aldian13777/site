@@ -65,19 +65,19 @@ def collect_csv():
     #convert dataframe into List of Dictionary
     rows = csv_df.to_dict(orient="records")
 
-    #store List of Dictionary into Class Table
-    object01 = []
+    #store List of Dictionary into Class
+
     for row in rows:
         bulk_input = test01(
             name=row["Name"],
             age=row["Age"])
-   
-        object01.append({
-            "name":bulk_input.name,
-            "age":bulk_input.age})
 
-    return object01
- 
+    
+    #Save and send data to DB
+    db.session.add(bulk_input)
+    db.session.commit()
+
+    return "Success"
     
 ##############################################################
 
