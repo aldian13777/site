@@ -71,10 +71,9 @@ def collect_csv():
         bulk_input = test01(
             name=row["Name"],
             age=row["Age"])
-
+        db.session.add(bulk_input) #saving each row then loop
     
     #Save and send data to DB
-    db.session.add(bulk_input)
     db.session.commit()
 
     return "Success"
